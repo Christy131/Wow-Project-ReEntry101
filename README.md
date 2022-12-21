@@ -12,6 +12,7 @@
         ```$ venv\Scripts\activate.bat```
     - For Mac:<br>
         ```$ .venv\scripts\activate```
+        ```$ source venv/bin/deactivate (to shut off vertial environment) ```
     - Your virtaul environment should be running in your terminal in 'venv' marker`
 
 
