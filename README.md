@@ -1,5 +1,9 @@
 # Wow-Project-ReEntry101
 
+-Our project is a website to assist the formerly incarsareted to find resources and connect with others when re-entering into society. There will be a resources page with helpful links and information. Also a page where questions can be asked and answered by others.
+=======
+
+
 ### 1. Create a Virtual Environment
 - To create virtual environment, first you create your virtual environment in the main folder. Run:<br>
 
@@ -12,7 +16,10 @@
         ```$ venv\Scripts\activate.bat```
     - For Mac:<br>
         ```$ .venv\scripts\activate```
+
+=======
         ```$ source venv/bin/deactivate (to shut off vertial environment) ```
+
     - Your virtaul environment should be running in your terminal in 'venv' marker`
 
 
