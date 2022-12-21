@@ -1,4 +1,5 @@
 # Wow-Project-ReEntry101
+
 ### 1. Create a Virtual Environment
 - To create virtual environment, first you create your virtual environment in the main folder. Run:<br>
 
@@ -27,3 +28,6 @@
 - https://code.visualstudio.com/docs/python/tutorial-django
 
 - https://py-vscode.readthedocs.io/en/latest/files/venv.html
+
+
+
