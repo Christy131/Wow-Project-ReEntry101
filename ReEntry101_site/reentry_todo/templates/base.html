@@ -1,0 +1,44 @@
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    {% comment %} Bootstrap css link {% endcomment %}
+    <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
+    <link rel ="stylesheet" href ="{% static 'style.css' %}"
+
+    <title>Reentry 101</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+        <a class="navbar-brand fa fa-2x" href="#">Reentry 101</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
+            aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarToggler">
+            <ul class="navbar-nav mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Send a Kite</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Resource</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid mt-5">
+        {% block body %}
+        {% endblock %}
+      </div>
+
+
+
+</body>
+</html>
