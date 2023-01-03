@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+
+{% for question in question_list %}
+<h1>{{question.description}}</h1>
+{% endfor %}
+{% endblock %}

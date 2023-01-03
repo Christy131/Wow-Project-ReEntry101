@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+
+<h1>{{question.description}}</h1>
+{% comment %} this is the text field  {% endcomment %}
+<form method = 'POST'>
+    {% csrf_token %}
+    {{ comment_form }}
+    <input type = "submit" name = 'add' value = 'Add'/>
+</form>
+{% comment %} for looping over the comments and displaying them in a list {% endcomment %}
+{% for comment in comment_list %}
+<li>{{ comment.body}}</li>
+{% endfor %}
+{% endblock %}
