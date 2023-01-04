@@ -2,7 +2,7 @@
 {% load static %}
 {% block body %}
 
-<h1>{{question.description}}</h1>
+<h1>{{question.question}}</h1>
 {% comment %} this is the text field  {% endcomment %}
 <form method = 'POST'>
     {% csrf_token %}

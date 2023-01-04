@@ -7,7 +7,7 @@ class QuestionForm(ModelForm):
     '''
     class Meta:
         model = Question
-        fields = ['description']
+        fields = ['question']
 class CommentForm(ModelForm):
     model = Comment
     fields = ['body']

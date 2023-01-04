@@ -1,8 +1,14 @@
 {% extends "base.html" %}
 {% load static %}
 {% block body %}
+<form method = 'POST'>
+    {% csrf_token %}
+    {{ question_form }}
+    
 
+    <input type = "submit" name = 'add' value = 'Add'/>
+</form>
 {% for question in question_list %}
-<h1>{{question.description}}</h1>
+<h1>{{question.question}}</h1>
 {% endfor %}
 {% endblock %}
