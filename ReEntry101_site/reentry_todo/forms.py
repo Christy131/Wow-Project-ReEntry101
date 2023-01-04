@@ -9,8 +9,9 @@ class QuestionForm(ModelForm):
         model = Question
         fields = ['question']
 class CommentForm(ModelForm):
-    model = Comment
-    fields = ['body']
+    class Meta:
+        model = Comment
+        fields = ['body']
     def __init__(self, *args,**kwargs):
         question = kwargs.pop('question_object')
         super().__init__(*args,**kwargs)

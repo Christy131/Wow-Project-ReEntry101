@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 class Question(models.Model):
@@ -6,4 +7,5 @@ class Question(models.Model):
     
 class Comment(models.Model):
     body = models.TextField()
-    # created_at = models.DateTimeField(auto_now_add = True)
+    created_at = models.DateTimeField (default=timezone.now())
+    question = models.ForeignKey(Question, on_delete=models.CASCADE, default=1)
