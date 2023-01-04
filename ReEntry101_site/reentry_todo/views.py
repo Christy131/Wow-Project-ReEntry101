@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from django.views import View
 # Import model for Questions
@@ -47,7 +47,7 @@ class QuestionsView(View):
         question_form = QuestionForm()
         html_data = {
              'question_list': questions,
-             'form': question_form
+             'question_form': question_form
         }
         return render (
             request = request,
@@ -58,6 +58,6 @@ class QuestionsView(View):
         question_form = QuestionForm(request.POST)
         question_form.save()
         # Needs a redirect from a pathway
-        # return redirect()
+        return redirect('question')
         
         
