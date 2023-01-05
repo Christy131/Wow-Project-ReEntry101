@@ -29,13 +29,15 @@ class CommentDetailView(View):
             template_name= 'details.html',
             context = html_data
         ) 
-    def post(self, request, comment_id):
-        comment = Comment.objects.get(id=comment_id)
-        comment_form = CommentForm(request.POST, instance= comment)
-        if 'update' in request.POST: 
-            comment_form.save()
-        elif 'delete' in request.POST:
-            comment.delete()
+    def post(self, request, question_id):
+        comment = Question.objects.get(id=question_id)
+        comment_form = CommentForm(request.POST, question_object=comment)
+        comment_form.save()
+        return redirect('comment_detail')
+        # if 'update' in request.POST: 
+        #     comment_form.save()
+        # elif 'delete' in request.POST:
+        #     comment.delete()
         # elif 'add' in request.POST:
         #     comment_form = CommentForm(request.POST, task_object = task)
         #     comment_form.save()
