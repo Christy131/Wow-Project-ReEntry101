@@ -8,9 +8,16 @@
     {% csrf_token %}
     {{ comment_form }}
     <input type = "submit" name = 'add' value = 'Add'/>
+    
 </form>
 {% comment %} for looping over the comments and displaying them in a list {% endcomment %}
 {% for comment in comment_list %}
+<form method = 'POST'>
+    {% csrf_token %}
+    {% comment %} {{ comment_form }} {% endcomment %}
 <li>{{ comment.body}}</li>
+<input type = "submit" name = 'update' value = 'Update'/>
+<input type = "submit" name = 'delete' value = 'Delete'/>
+</form>
 {% endfor %}
 {% endblock %}

@@ -14,7 +14,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
-        <a class="navbar-brand fa fa-2x" href="#">Reentry 101</a>
+        <a class="navbar-brand fa fa-2x" href={% url 'home' %}>Reentry 101</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
             aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -22,10 +22,10 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarToggler">
             <ul class="navbar-nav mt-2 mt-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link" href={% url 'home' %}>Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Send a Kite</a>
+                    <a class="nav-link" href={% url 'question' %}>Send a Kite</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Resource</a>
