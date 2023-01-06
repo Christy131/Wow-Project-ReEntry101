@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 
+
 from django.views import View
 # Import model for Questions
 from reentry_todo.models import Question, Comment
@@ -33,11 +34,12 @@ class CommentDetailView(View):
         comment = Question.objects.get(id=question_id)
         comment_form = CommentForm(request.POST, question_object=comment)
         comment_form.save()
-        return redirect('comment_detail')
-        # if 'update' in request.POST: 
-        #     comment_form.save()
-        # elif 'delete' in request.POST:
-        #     comment.delete()
+        redirect('comment_detail', question_id)
+        if 'update' in request.POST: 
+            comment.save()
+        if 'delete' in request.POST:
+            comment.delete()
+        return redirect('comment_detail', question_id)
         # elif 'add' in request.POST:
         #     comment_form = CommentForm(request.POST, task_object = task)
         #     comment_form.save()

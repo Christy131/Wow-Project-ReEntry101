@@ -4,8 +4,6 @@
 <form method = 'POST'>
     {% csrf_token %}
     {{ question_form }}
-    
-
     <input type = "submit" name = 'add' value = 'Add'/>
 </form>
 {% for question in question_list %}
