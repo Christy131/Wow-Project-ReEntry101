@@ -15,9 +15,12 @@
 <form method = 'POST'>
     {% csrf_token %}
     {% comment %} {{ comment_form }} {% endcomment %}
-<li>{{ comment.body}}</li>
-<input type = "submit" name = 'update' value = 'Update'/>
-<input type = "submit" name = 'delete' value = 'Delete'/>
+<li>{{ comment.body}}
+<!-- <input type = "submit" name = 'update' value = 'Update'/> -->
+<!-- <input type = "submit" name = 'delete' value = 'Delete'/> -->
+
+<td><a href="{% url 'delete' comment.id %}" class="btn btn-danger"> Delete </a></td>
+<td><a href="{% url 'comment' comment.id %}" class="btn btn-primary"> Update </a></td></li>
 </form>
 {% endfor %}
 {% endblock %}
