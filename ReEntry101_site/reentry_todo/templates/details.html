@@ -6,15 +6,19 @@
 {% comment %} this is the text field  {% endcomment %}
 <form method = 'POST'>
     {% csrf_token %}
-    {{ comment_form }}
-    <br>
     {{ tag_form }}
-    <input type = "submit" name = 'add' class= "btn btn-success" value = 'Add'/>
+    <input type = "submit" name = 'tag' class= "btn btn-success" value = 'Tag'/>
 </form>
-<hr>
 {% for tag in tag_list %}
     <li style = 'display:inline' 'list-style-type:none'>{{ tag.name }} | </li>
 {% endfor %}
+<hr>
+<form method = 'POST'>
+    {% csrf_token %}
+    {{ comment_form }}
+    <input type = "submit" name = 'add' class= "btn btn-success" value = 'Add'/>
+    
+</form>
 
 {% comment %} for looping over the comments and displaying them in a list {% endcomment %}
 {% for comment in comment_list %}

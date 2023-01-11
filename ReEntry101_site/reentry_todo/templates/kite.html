@@ -9,7 +9,7 @@
 
 
 {% for question in question_list %}
-<h1><li><a href="{% url 'comment_detail' question.id %}">{{ question.question }}</a></li></h1>
+<h1><li><a href="{% url 'question_detail' question.id %}">{{ question.question }}</a></li></h1>
 
 {% endfor %}
 {% endblock %}

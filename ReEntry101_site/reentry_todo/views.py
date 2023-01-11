@@ -14,7 +14,7 @@ class HomeView (View):
     def get (self, request):
         return render(request=request, template_name='index.html')
 # CommentDetailView is the question detail view about a particular question 
-class CommentDetailView(View):
+class QuestionDetailView(View):
     def get(self,request,question_id):
         # gets the question by the id
         question = Question.objects.get(id=question_id)
@@ -45,11 +45,12 @@ class CommentDetailView(View):
         tag_form = TagForm(request.POST, comment)
         if 'add' in request.POST:
             comment_form.save()
+        elif 'tag' in request.POST:
             tag_form.save(comment)
-            return redirect('comment_detail', question_id)
+            # return redirect('question_detail', question_id)
         # Save the comment
-        # Have to pass the question id because the comment is associated with the question so we needed to included question_id because we would get an error if we didn't include the question_id which is how we get to the comment_detail page
-        return redirect('comment_detail', question_id)
+        # Have to pass the question id because the comment is associated with the question so we needed to included question_id because we would get an error if we didn't include the question_id which is how we get to the question_detail page
+        return redirect('question_detail', question_id)
         
 # Viewing the questions all of them at once
 class QuestionsView(View):
@@ -62,7 +63,6 @@ class QuestionsView(View):
         html_data = {
              'question_list': questions,
              'question_form': question_form,
-             
         }
         # Kite.html is where the user can enter in their question
         return render (
