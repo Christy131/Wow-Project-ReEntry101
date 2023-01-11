@@ -19,7 +19,7 @@ class QuestionDetailView(View):
         # gets the question by the id
         question = Question.objects.get(id=question_id)
         # Filters all the comments associated with the question One to Many Relationship
-        comment = Comment.objects.filter(question_id = question_id)
+        comment = Comment.objects.filter(question_id = question_id).order_by('-created_at')
         # Creates the view for the form
         comment_form = CommentForm(question_object = question) 
         current_tags = question.tags.all()
