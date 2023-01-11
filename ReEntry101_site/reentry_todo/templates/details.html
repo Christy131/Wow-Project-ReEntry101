@@ -7,9 +7,15 @@
 <form method = 'POST'>
     {% csrf_token %}
     {{ comment_form }}
-    <input type = "submit" name = 'add' value = 'Add'/>
-    
+    <br>
+    {{ tag_form }}
+    <input type = "submit" name = 'add' class= "btn btn-success" value = 'Add'/>
 </form>
+<hr>
+{% for tag in tag_list %}
+    <li style = 'display:inline' 'list-style-type:none'>{{ tag.name }} | </li>
+{% endfor %}
+
 {% comment %} for looping over the comments and displaying them in a list {% endcomment %}
 {% for comment in comment_list %}
 <form method = 'POST'>
@@ -22,5 +28,7 @@
 <td><a href="{% url 'delete' comment.id %}" class="btn btn-danger"> Delete </a></td>
 <td><a href="{% url 'comment' comment.id %}" class="btn btn-primary"> Update </a></td></li>
 </form>
+
+
 {% endfor %}
 {% endblock %}
