@@ -17,3 +17,6 @@ class CommentForm(ModelForm):
         super().__init__(*args,**kwargs)
         # This needs to be created still on a seperate view
         self.instance.question = question
+        self.fields['body'].label=''
+
+

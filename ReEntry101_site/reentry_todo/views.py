@@ -34,16 +34,9 @@ class CommentDetailView(View):
         comment = Question.objects.get(id=question_id)
         comment_form = CommentForm(request.POST, question_object=comment)
         comment_form.save()
-        redirect('comment_detail', question_id)
-        if 'update' in request.POST: 
-            comment.save()
-        if 'delete' in request.POST:
-            comment.delete()
+        
         return redirect('comment_detail', question_id)
-        # elif 'add' in request.POST:
-        #     comment_form = CommentForm(request.POST, task_object = task)
-        #     comment_form.save()
-        #     return redirect('task_detail', task.id)
+        
 # Viewing the questions all of them at once
 class QuestionsView(View):
     def get(self, request):
@@ -63,5 +56,17 @@ class QuestionsView(View):
         question_form.save()
         # Needs a redirect from a pathway
         return redirect('question')
+#A function based view was created 
+def delete(request, id):
+    #Getting the comment id from the database
+    comment= Comment.objects.get(id=id)
+    #Pressing the delete button deletes the comment
+    comment.delete()
+
+    return redirect('question')
         
-        
+class CommentView(View):
+    def get(self, request, id):
+        comment= Comment.objects.get(id=id)
+        comment_form = CommentForm({'body':comment})
+
