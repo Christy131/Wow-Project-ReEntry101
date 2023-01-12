@@ -56,7 +56,7 @@ class TagForm(ModelForm):
         # 1) The object
         # 2) A boolean of whether or not it was created now or already existed
         # We can catch these two items separately, since we only want the object
-
+#just to commit
         question.tags.add(tag) 
 
 class CommentDetailForm(forms.ModelForm):

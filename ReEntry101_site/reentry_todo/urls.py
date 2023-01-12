@@ -3,7 +3,7 @@ from django.urls import path
 from reentry_todo.views import HomeView, QuestionDetailView, QuestionsView, CommentView
 # The single dot is a convention from command line applications. It means the current directory. In terms of Django it stands for the directory/module the current file is on.
 from . import views
-
+#just to commit
 urlpatterns=[
     # This path is the homepage
     path ('', HomeView.as_view(), name='home'),

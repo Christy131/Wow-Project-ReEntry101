@@ -84,7 +84,7 @@ def delete(request, id):
     # Comment is deleted
     comment.delete()
     return redirect('question')
-        
+        #just to commit
 class CommentView(View):
   def get(self, request, id):
     comment= Comment.objects.get(id=id)

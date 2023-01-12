@@ -23,3 +23,4 @@ class Comment(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE, default=1)
     def __str__(self):
         return self.body
+#just to commit
