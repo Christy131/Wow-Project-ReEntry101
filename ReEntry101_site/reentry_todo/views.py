@@ -5,7 +5,7 @@ from django.views import View
 # Import model for Questions
 from reentry_todo.models import Question, Comment
 # Import question form
-from reentry_todo.forms import QuestionForm, CommentForm, TagForm
+from reentry_todo.forms import QuestionForm, CommentForm, TagForm, CommentDetailForm
 
 # Create your views here.
 
@@ -84,9 +84,32 @@ def delete(request, id):
     # Comment is deleted
     comment.delete()
     return redirect('question')
-        
+        #just to commit
 class CommentView(View):
-    def get(self, request, id):
-        comment= Comment.objects.get(id=id)
-        comment_form = CommentForm({'body':comment})
+  def get(self, request, id):
+    comment= Comment.objects.get(id=id)
+    comment_form = CommentDetailForm(instance = comment)
+    return render(
+      request=request,
+      template_name='edit.html',
+      context={
+          'comment_form' :  comment_form
+          })
+  def post(self, request,id):
+    comment = Comment.objects.get(pk=id)
+    comment_form = CommentDetailForm(request.POST, instance = comment)
+    if comment_form.is_valid():
+      comment_form.save()
+      return render(
+        request=request,
+        template_name='edit.html',
+        context={
+          'comment_form' : comment_form,
+          'success' : True
+          },)
+    else:
+        return redirect ('question')
+    return redirect ('question')
+
+
 
