@@ -21,4 +21,5 @@ class Comment(models.Model):
     created_at = models.DateTimeField (default=timezone.now())
     # Creates the foregin key so the One to Many Relationship is established
     question = models.ForeignKey(Question, on_delete=models.CASCADE, default=1)
-
+    def __str__(self):
+        return self.body

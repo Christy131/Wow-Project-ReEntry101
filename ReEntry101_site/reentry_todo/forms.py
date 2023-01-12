@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 from reentry_todo.models import Question, Comment, Tag
-
+from django import forms
 class QuestionForm(ModelForm):
     '''
     creating a question form the input box and the field required is called description
@@ -58,3 +58,12 @@ class TagForm(ModelForm):
         # We can catch these two items separately, since we only want the object
 
         question.tags.add(tag) 
+
+class CommentDetailForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['body']
+    def __init__(self, *args,**kwargs):
+        super().__init__(*args,**kwargs)
+        # This needs to be created still on a seperate view
+        self.fields['body'].label=''
