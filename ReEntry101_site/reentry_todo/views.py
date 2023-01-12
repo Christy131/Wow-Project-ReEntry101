@@ -74,8 +74,6 @@ class QuestionsView(View):
         # If the user clicks the add button, save it to add to the database
         question_form = QuestionForm(request.POST)
         question_form.save()
-        tag_form = TagForm(request.POST)
-        tag_form.save(question_form)
         return redirect('question')
 #A function based view was created 
 def delete(request, id):
