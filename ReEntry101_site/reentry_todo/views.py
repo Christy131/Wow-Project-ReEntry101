@@ -109,5 +109,9 @@ class CommentView(View):
         return redirect ('question')
     return redirect ('question')
 
+# this is the resources page
+class ResourceView (View): 
+    def get (self, request):
+        return render(request=request, template_name='resources.html')
 
 

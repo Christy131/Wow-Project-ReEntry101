@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 {% load static %}
 {% block body %}
-
-<h1>{{question.question}}</h1>
-{% comment %} this is the text field  {% endcomment %}
+<h1> Kite </h1>
+<h2>{{question.question}}</h2>
+<hr>
+{% comment %} this is the text field  {% endcomment %} 
+<h3> Tag Kite</h3>
 <form method = 'POST'>
     {% csrf_token %}
     {{ tag_form }}
@@ -13,6 +15,7 @@
     <li style = 'display:inline' 'list-style-type:none'>{{ tag.name }} | </li>
 {% endfor %}
 <hr>
+<h3> Reply to Kite</h3>
 <form method = 'POST'>
     {% csrf_token %}
     {{ comment_form }}
