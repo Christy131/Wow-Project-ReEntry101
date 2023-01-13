@@ -34,6 +34,8 @@ class TagForm(ModelForm):
         # `ModelForm`s come with an attribute called `self.data` that
         # keeps track of the data in the form as a dictionary.
         tag_name = self.data['name']
+        self.fields['name'].label=''
+
 
         # If a tag with this name already exists, we want to use that one,
         # not create a new tag with the same name (in fact this will error).
@@ -58,6 +60,7 @@ class TagForm(ModelForm):
         # We can catch these two items separately, since we only want the object
 #just to commit
         question.tags.add(tag) 
+        
 
 class CommentDetailForm(forms.ModelForm):
     class Meta:
