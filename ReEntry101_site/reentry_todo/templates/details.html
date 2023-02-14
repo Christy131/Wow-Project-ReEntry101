@@ -1,40 +1,74 @@
 {% extends "base.html" %}
 {% load static %}
+ 
 {% block body %}
 <h1> Kite </h1>
-<h2>{{question.question}}</h2>
-<hr>
+
+<div class="row">
+    <div class= 'col-lg-12 col-12 pt-3 px-4 pr-lg-5 text-center'>
+        <h1 id="welcomeHome" class="text-primary mt-5">{{question.question}}</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class= 'col-lg-5 col-12 pt-3 px-4 pr-lg-5 text-center'>
+        <h1  class="text-primary mt-5">Sub Categories</h1>
+        <hr>
+        <div>
+            <p>Please provide sub categories that will best fit the question</p>
+                <form method = 'POST'>
+                    {% csrf_token %}
+                    <div class="input-group">
+                    {{ tag_form }}
+                    <div class="input-group-prepend">
+                        <button type = "submit" name = 'tag' class= "btn btn-primary input-group-text" value = 'Tag'>Tag</button>
+                        </div>
+                </form>
+                <ul class="bg-light text-primary">
+                {% for tag in tag_list %}
+                    <li style = 'display:inline' 'list-style-type:none'>{{ tag.name }} | </li>
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class= 'col-lg-7 col-12 pt-3 px-4 pr-lg-5 text-center' algin="right">
+        <h1  class="text-primary mt-5">Add A Comment</h1>
+        <hr>
+        <p>Do you have an asnwer to a question, please provide a response in a comment</p>
+        <form method = 'POST'>
+            {% csrf_token %}
+            <div class = "bg-light container">
+            {{ comment_form }}
+            </div>
+            <input type = "submit" name = 'add' class= "btn btn-primary mt-3" value = 'Add'/>
+        </form>
+    </div>
+</div>
+
 {% comment %} this is the text field  {% endcomment %} 
-<h3> Tag Kite</h3>
-<form method = 'POST'>
-    {% csrf_token %}
-    {{ tag_form }}
-    <input type = "submit" name = 'tag' class= "btn btn-success" value = 'Tag'/>
-</form>
-{% for tag in tag_list %}
-    <li style = 'display:inline' 'list-style-type:none'>{{ tag.name }} | </li>
-{% endfor %}
-<hr>
-<h3> Reply to Kite</h3>
-<form method = 'POST'>
-    {% csrf_token %}
-    {{ comment_form }}
-    <input type = "submit" name = 'add' class= "btn btn-success" value = 'Add'/>
-    
-</form>
 
+<div class="row">
+    <div class= 'col-lg-12 col-12 pt-3 px-4 pr-lg-5 text-center'>
+        <h1 id="welcomeHome" class="text-primary mt-5">Comments</h1>
+    </div>
+    <div class= 'col-lg-9 col-12 pt-3 px-4 pr-lg-5 text-center'>
+    {% for comment in comment_list %}
+    <form method = 'POST'>
+        {% csrf_token %}
+        {% comment %} {{ comment_form }} {% endcomment %}
+        <div class="card bg-light" style="width: 25rem;">
+            <div class="card-body">
+              <h3 class="card-title text-dark">{{ comment.body}}</h3>
+              {% comment %} need to add a like button here {% endcomment %}
+             <a href ="{% url 'delete' comment.id %}"class="btn btn-danger" >Delete</a>
+             <a href="{% url 'comment' comment.id %}" class="btn btn-primary"> Update </a>
+            </div>
+          </div>
+    </form>
+</div>
+</div>
 {% comment %} for looping over the comments and displaying them in a list {% endcomment %}
-{% for comment in comment_list %}
-<form method = 'POST'>
-    {% csrf_token %}
-    {% comment %} {{ comment_form }} {% endcomment %}
-<li>{{ comment.body}}
-<!-- <input type = "submit" name = 'update' value = 'Update'/> -->
-<!-- <input type = "submit" name = 'delete' value = 'Delete'/> -->
-
-<td><a href="{% url 'delete' comment.id %}" class="btn btn-danger"> Delete </a></td>
-<td><a href="{% url 'comment' comment.id %}" class="btn btn-primary"> Update </a></td></li>
-</form>
 
 
 {% endfor %}

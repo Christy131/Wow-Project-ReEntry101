@@ -1,51 +1,110 @@
 {% extends "base.html" %}
 {% load static %}
 {% block body %}
-
-<style>
-    body {background-color: blanchedalmond;}
-    h1 {color: darkblue;}
-    h3 {color: darkblue;}
-    h6 {color: darkblue;}
-    p {color: orangered;}
-
-</style>
-    
-        <h1><b>Resources</b></h1>
-        <h3>ReEntry Guides:</h3>
+{% comment %} Formatted to look similar to the landing page {% endcomment %}
+<div class ="row mb-5">
+    <div class= 'col-lg-5 col-12 pt-3 px-4 pr-lg-5 text-center'>
+        <img src={% static './images/housingUnit.jpeg' %} alt="Housing Unit" class="imagesForCircle">
+    </div>
+    <div class="col-lg-7 col-12 pt-lg-3 mb-4 pl-lg-5 px-lg-0 px-4 text-center">
+        <h1 id="resourceHeader" class="mt-5 text-primary" >Resources Page</h1>
+      <hr>
+        <div>
+            <p class="mt-5">Looking for important information, please click our buttons below to help you find it. Please click the buttons below to see information under the categories</p>
+        </div>
+    </div>
+</div>
+<div class ="row mb-5">
+    <div class= 'col-lg-12 col-12 pt-3 px-4 pr-lg-5 text-center'>
+      {% comment %} Toggls for each sub section {% endcomment %}
+  <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Resource Guides</a>
+  <a class="btn btn-primary" role="button" data-toggle="collapse" href="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Social Security and Disability</a>
+  <a class="btn btn-primary" role="button" data-toggle="collapse" href="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3">Education</a>
+  <a class="btn btn-primary" role="button" data-toggle="collapse" href="#multiCollapseExample4" aria-expanded="false" aria-controls="multiCollapseExample4">Housing Unit</a>
+  <a class="btn btn-primary" role="button" data-toggle="collapse" href="#multiCollapseExample5" aria-expanded="false" aria-controls="multiCollapseExample5">Chow Hall</a>
+  <a class="btn btn-primary" role="button" data-toggle="collapse" href="#multiCollapseExample6" aria-expanded="false" aria-controls="multiCollapseExample6">Infirmary</a>
+  <a class="btn btn-primary" role="button" data-toggle="collapse" href="#multiCollapseExample7" aria-expanded="false" aria-controls="multiCollapseExample7">Mental Health</a>
+    <div class="col mt-4">
+      {% comment %} When clicked trigger this {% endcomment %}
+      <div class="collapse multi-collapse" id="multiCollapseExample1">
+        <h1>Resource Guides</h1>
+        <div class="card card-body">
             <p>You can download an electronic version for free through <a href="https://reentryillinois.net">Here</a>,
-            or you may call(217) 300-5150 or request by email @reentry@educationjustice.net. Or you can request by mail
-            to Education Justice Project 1001 S Wright St. Champaign, IL 61820.
-            </p>
-
-        <h3>Social Security and Disability:</h3>
+                or you may call(217) 300-5150 or request by email @reentry@educationjustice.net. Or you can request by mail
+                to Education Justice Project 1001 S Wright St. Champaign, IL 61820.
+                </p>
+        </div>
+      </div>
+    </div>
+    <div class="col mt-4">
+      <div class="collapse multi-collapse" id="multiCollapseExample2">
+        <h1>Social Security and Disability</h1>
+        <div class="card card-body">
             <p>You can visit the Social Security Administration website <a href="https://ssa.gov">Here</a>,
-            or you can call them at 1-800-722-1213. </p>
-
-        <h3>Education:</h3>
+                or you can call them at 1-800-722-1213. </p>
+        </div>
+      </div>
+    </div>
+    <div class="col mt-4">
+        <div class="collapse multi-collapse" id="multiCollapseExample3">
+          <h1>Education</h1>
+          <div class="card card-body">
             <p>The U.S. Department of Education has a "Take Charge of Your Future" guide you can download in pdf 
-            <a href="ttps://www2.ed.gov/about/offices/list/ovae/pi/AdultEd/take-charge-your-future.pdf">Here</a>.</p>
-
-        <h3>Housing:</h3>
-                <p>Find Transitional and Sober Housing - this site allows you to choose your state to find help in your area. 
-                    <a href="https://transitionalhousing.org">Here</a></p>
-                <p>The Sober House Directory is another wonderful source <a href="https://soberhousedirectory.com">Here</a></p>
-                <p>U.S Homeless Shelter Directory can be found <a href="https://www.homelessshelterdirectory.org">Here</a></p>
-                <p>Shelter Listings.org is another great resource <a href="https://shelterlistings.org">Here</a></p></p>
-        <h6><i>Note: All of the above allow you to search by State</i></h6>  
-        
-        <h3>Food:</h3>
+                <a href="ttps://www2.ed.gov/about/offices/list/ovae/pi/AdultEd/take-charge-your-future.pdf">Here</a>.</p>
+          </div>
+        </div>
+      </div>
+    <div class="col mt-4">
+        <div class="collapse multi-collapse" id="multiCollapseExample4">
+          <h1>Housing Unit</h1>
+          <div class="card card-body">
+            <p>Find Transitional and Sober Housing - this site allows you to choose your state to find help in your area. 
+                <a href="https://transitionalhousing.org">Here</a></p>
+          </div>
+          <div class="card card-body">
+            <p>The Sober House Directory is another wonderful source <a href="https://soberhousedirectory.com">Here</a></p>
+          </div>
+          <div class="card card-body">
+            <p>U.S Homeless Shelter Directory can be found <a href="https://www.homelessshelterdirectory.org">Here</a></p>
+          </div>
+          <div class="card card-body">
+            <p>Shelter Listings.org is another great resource <a href="https://shelterlistings.org">Here</a></p>
+          </div>
+        </div>
+    </div>
+    <div class="col mt-4">
+        <div class="collapse multi-collapse" id="multiCollapseExample5">
+          <h1>Chow Hall</h1>
+          <div class="card card-body">
                 <p>Food pantries and soup kitchens can be found on the Feeding America.org website 
                     <a href="https://www.feedingamerica.org/find-your-local-foodbank">Here</a>.</p>
+          </div>
+        </div>
+    </div>
+    <div class="col mt-4">
+        <div class="collapse multi-collapse" id="multiCollapseExample6">
+          <h1>Infirmary</h1>
+          <div class="card card-body">
+            <p>The National Association of Free & Charitiable Clinics "NAFC", you can look for clinics by you zip code.  
+                <a href="https://nafcclinics.org/find-clinic/">Here</a>.</p>
+            <p>Substance use treatment and help can be found at <a href="https://www.aa.org">Here</a>, 
+                or call the SAMHSA National Helpline at 1-800-662-4357.</p>
+          </div>
+        </div>
+    </div>
+      <div class="col mt-4">
+        <div class="collapse multi-collapse" id="multiCollapseExample7">
+          <h1>Mental Health</h1>
+          <div class="card card-body">
+            <p>Mental Health Emergency call 988 for the Suicide and Crisis Lifeline. Please call 911 if you are having an emergency.</p>
+            <h6><i>Note: Community health clinics and dental clinics are cheaper or even free. You can use them even if you don’t have insurance. 
+                Go to an emergency room if you have an emergency.</i></h6>
+          </div>
+        </div>
+</div>
+</div>
         
-        <h3>Healthcare and dental care:</h3>
-        <p>The National Association of Free & Charitiable Clinics "NAFC", you can look for clinics by you zip code.  
-            <a href="https://nafcclinics.org/find-clinic/">Here</a>.</p>
-        <p>Substance use treatment and help can be found at <a href="https://www.aa.org">Here</a>, 
-            or call the SAMHSA National Helpline at 1-800-662-4357.</p>
-        <p>Mental Health Emergency call 988 for the Suicide and Crisis Lifeline. Please call 911 if you are having an emergency.</p>
-        <h6><i>Note: Community health clinics and dental clinics are cheaper or even free. You can use them even if you don’t have insurance. 
-            Go to an emergency room if you have an emergency.</i></h6>
+        
                 
 
 

@@ -34,7 +34,7 @@ class TagForm(ModelForm):
         # `ModelForm`s come with an attribute called `self.data` that
         # keeps track of the data in the form as a dictionary.
         tag_name = self.data['name']
-        self.fields['name'].label=''
+        
 
 
         # If a tag with this name already exists, we want to use that one,
@@ -44,6 +44,7 @@ class TagForm(ModelForm):
 
         try:
             tag = Tag.objects.get(name=tag_name)
+            self.fields['name'].label=''    
         except Tag.DoesNotExist:
             # How did I know to catch the exception `Tag.DoesNotExist`?
             # I ran line 55 (trying to get a tag) on a nonexistant tag
@@ -59,7 +60,9 @@ class TagForm(ModelForm):
         # 2) A boolean of whether or not it was created now or already existed
         # We can catch these two items separately, since we only want the object
 #just to commit
-        question.tags.add(tag) 
+        question.tags.add(tag)
+        self.fields['name'].label=''
+        
         
 
 class CommentDetailForm(forms.ModelForm):
