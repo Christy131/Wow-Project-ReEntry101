@@ -120,6 +120,7 @@ class SearchView(View):
     def post (self, request):
         searched = request.POST['searched']
         # Checking the content of each section and filtering it to see if it contains the searched item
+        # Suggestion: Maybe Make a database for resources as well
         questions = Question.objects.filter(question__contains=searched)
         comments = Comment.objects.filter(body__contains=searched)
         tags = Question.objects.filter(tags__name__contains=searched)

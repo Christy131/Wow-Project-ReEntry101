@@ -11,8 +11,7 @@
 /* headers with similar charateristics */
 #welcomeHome,
 #searchItem,
-#commentSection,
-#resourceHeader {
+#commentSection {
     font-family: signPainter;
     text-shadow: 2px 2px 2px black;
     font-size: 5em;

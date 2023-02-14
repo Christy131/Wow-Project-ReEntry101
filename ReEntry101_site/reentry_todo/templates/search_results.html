@@ -10,7 +10,7 @@
     </div>
 <div class="row">
     <div class= 'col-lg-4 col-12 pt-3 px-4 pr-lg-5 text-center'>
-    {% comment %} displays all of the following with the words the user searched {% endcomment %}
+    {% comment %} displays all of the following with the words the user searched, search however DOES NOT INCLUDE RESOURCE PAGE may need to add another database {% endcomment %}
     {% if questions%}
         {% for question in questions%}
         <a href ="{% url 'question_detail' question.id %}"><h2 class="onHover">{{ question.question }}</h2></a> <br/>

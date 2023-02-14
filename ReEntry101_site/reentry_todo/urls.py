@@ -17,5 +17,6 @@ urlpatterns=[
     path('comment/<int:id>', CommentView.as_view(), name='comment'),
     # Take the user to the resources page
     path('resources', ResourceView.as_view(), name ='resources'),
+    # added this pathway for the searh results
     path('search_results', SearchView.as_view(), name='search_results')
 ]

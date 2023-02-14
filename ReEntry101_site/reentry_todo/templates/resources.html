@@ -7,16 +7,16 @@
         <img src={% static './images/housingUnit.jpeg' %} alt="Housing Unit" class="imagesForCircle">
     </div>
     <div class="col-lg-7 col-12 pt-lg-3 mb-4 pl-lg-5 px-lg-0 px-4 text-center">
-        <h1 id="resourceHeader" class="mt-5 text-primary" >Resources Page</h1>
+        <h1 id="welcomeHome" class="mt-5 text-primary" >Resources Page</h1>
       <hr>
         <div>
-            <p class="mt-5">Looking for important information, please click our buttons below to help you find it. Please click the buttons below to see information under the categories</p>
+            <p class="mt-5">Looking for important information, please click our buttons below to help you find it.</p>
         </div>
     </div>
 </div>
 <div class ="row mb-5">
-    <div class= 'col-lg-12 col-12 pt-3 px-4 pr-lg-5 text-center'>
-      {% comment %} Toggls for each sub section {% endcomment %}
+    <div class= 'col-lg-12 col-12 pt-3 px-4 pr-lg-5 text-center justify-content-between'>
+      {% comment %} Toggles for each sub section {% endcomment %}
   <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Resource Guides</a>
   <a class="btn btn-primary" role="button" data-toggle="collapse" href="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Social Security and Disability</a>
   <a class="btn btn-primary" role="button" data-toggle="collapse" href="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3">Education</a>
@@ -24,8 +24,8 @@
   <a class="btn btn-primary" role="button" data-toggle="collapse" href="#multiCollapseExample5" aria-expanded="false" aria-controls="multiCollapseExample5">Chow Hall</a>
   <a class="btn btn-primary" role="button" data-toggle="collapse" href="#multiCollapseExample6" aria-expanded="false" aria-controls="multiCollapseExample6">Infirmary</a>
   <a class="btn btn-primary" role="button" data-toggle="collapse" href="#multiCollapseExample7" aria-expanded="false" aria-controls="multiCollapseExample7">Mental Health</a>
+  {% comment %} When clicked trigger these sections to toggle down with the header included {% endcomment %}
     <div class="col mt-4">
-      {% comment %} When clicked trigger this {% endcomment %}
       <div class="collapse multi-collapse" id="multiCollapseExample1">
         <h1>Resource Guides</h1>
         <div class="card card-body">
