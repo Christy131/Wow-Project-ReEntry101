@@ -1,6 +1,6 @@
 # Wow-Project-ReEntry101
 
--Our project is a website to assist the formerly incarcerated to find resources and connect with others when re-entering into society. There will be a resources page with helpful links and information. Also a page where questions can be asked and answered by others.
+- Our project is a website to assist the formerly incarcerated to find resources and connect with others when re-entering into society. There will be a resources page with helpful links and information. Also a page where questions can be asked and answered by others.
 =======
 
 
@@ -23,7 +23,7 @@
        ```source venv/bin/deactivate```
 
 ### 3. Run Bootstrap
--Run the following commands in termminal:<br>
+- Run the following commands in terminal:<br>
     ```pip3 install importlib-metadata```
     ```pip install django-bootstrap-v5```
     ```pip install django-bootstrap```
