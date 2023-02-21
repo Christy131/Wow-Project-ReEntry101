@@ -8,6 +8,10 @@
     border: 3px solid black;
 }
 
+#brandName {
+    font-family: cursive;
+    text-shadow: 2px 2px 2px black;
+}
 /* headers with similar charateristics */
 h1 {
     font-family: cursive;
@@ -78,8 +82,15 @@ div a h2 {
 #releasedPrison {
     height: 450px;
     width: 650px;
-    margin-right: 50px;
-    margin-top: 40px;
+    margin-right: 10%;
+    margin-top: 10%;
+}
+#welcome,
+#kite {
+    margin-top: 5%; 
+}
+#resource {
+    margin-top: 10%;  
 }
 .input-group label {
     margin-right: 2%;
