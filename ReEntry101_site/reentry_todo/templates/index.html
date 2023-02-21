@@ -1,7 +1,53 @@
 {% extends "base.html" %}
 {% load static %}
 {% block body %}
-<div>
-    <h1>Welcome to Reentry 101</h1>
+{% comment %} Landing page {% endcomment %}
+<div class="row">
+<div class= 'col-lg-5 col-12 pt-3 px-4 pr-lg-5 text-center'>
+    <h1 id="welcomeHome" class="text-primary mt-5">Welcome Back</h1>
+    <hr>
+    <div>
+        <p>We know returning to the outside world is an adjustment. Below are some suggested steps to make the transition easier. Please look around the website to see all we have to offer. Whatever we can do to help you, we are willing to assist you. </p>
+    </div>
 </div>
+<div class="col-lg-7 col-12 pt-lg-3 mb-4 pl-lg-5 px-lg-0 px-4 pd-4">
+    <img src= {% static './images/prisonRelease.jpeg' %}  align ="right" class="rounded float-right" alt="Prisoner Released from Prison">
+</div>
+</div>
+<div class ="row">
+    {% comment %} Uses the housing unit image as a picture {% endcomment %}
+    <div class= 'col-lg-6 col-12 pt-3 px-4 pr-lg-5 text-center'>
+        <a href = "{% url 'resources' %}"><img src={% static './images/housingUnit.jpeg' %} alt="Housing Unit" class="imagesForCircle"></a>
+    </div>
+    <div class="col-lg-6 col-12 pt-lg-3 mb-4 pl-lg-5 px-lg-0 px-4" align='center'>
+        <h1 class="mt-5">Need a Housing Unit?</h1>
+        <div>
+            <p class="mt-5">Looking for a place to stay, click the house picture and it will take you to our Resource Page</p>
+        </div>
+    </div>
+</div>
+<div class ="row">
+    <div class= 'col-lg-6 col-12 pt-3 px-4 pr-lg-5 text-center'>
+        {% comment %} Area for the Kite  {% endcomment %}
+        <h1 class="mt-5">Send a Kite</h1>
+        <p class="mt-5">Do you have a specfic question, we may have answered it. If not, please post it and someone will get back to you</p>
+        <div class="arrow-right"></div>
+            <a id="kiteLink" href={% url 'question' %}>Send a Kite</a>
+    </div>
+    <div class="col-lg-6 col-12 pt-lg-3 mb-4 pl-lg-5 px-lg-0 px-4" align='center'>
+        <img src={% static './images/sendingAKite.jpeg' %} alt="Passing a Note" class="imagesForCircle">
+    </div>
+</div>
+{% comment %} Pictures at the bottom of the home screen {% endcomment %}
+<div class="row">
+    <div class="column">
+      <img src= {% static './images/reunionAfterPrison.jpeg' %} alt="Released From Prison">
+    </div>
+    <div class="column">
+      <img src={% static './images/welcomeHome.jpeg' %} alt="Welcome Home">
+    </div>
+    <div class="column">
+        <img src={% static './images/justReleased.jpeg' %} alt='Reunion After Prison'>
+      </div>
+  </div>
 {% endblock %}

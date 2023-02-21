@@ -9,6 +9,7 @@ from reentry_todo.forms import QuestionForm, CommentForm, TagForm, CommentDetail
 
 # Create your views here.
 
+
 # this is the homepage
 class HomeView (View): 
     def get (self, request):
@@ -86,6 +87,8 @@ def delete(request, id):
 class CommentView(View):
   def get(self, request, id):
     comment= Comment.objects.get(id=id)
+    comment.likes=comment.likes+1
+    comment.likes.save()
     comment_form = CommentDetailForm(instance = comment)
     return render(
       request=request,
@@ -107,11 +110,32 @@ class CommentView(View):
           },)
     else:
         return redirect ('question')
-    return redirect ('question')
-
 # this is the resources page
 class ResourceView (View): 
     def get (self, request):
         return render(request=request, template_name='resources.html')
 
+# view of search results 
+class SearchView(View):
+    def post (self, request):
+        searched = request.POST['searched']
+        # Checking the content of each section and filtering it to see if it contains the searched item
+        # Suggestion: Maybe Make a database for resources as well
+        questions = Question.objects.filter(question__contains=searched)
+        comments = Comment.objects.filter(body__contains=searched)
+        tags = Question.objects.filter(tags__name__contains=searched)
+        # This is whatever someone searches
+        if request.method == 'POST':
+            # gets whatever the user searches
+            if 'searched' in  request.POST:
+                # getting all the items search
+                return render(request=request, 
+                          template_name='search_results.html',
+                          context = {'searched':searched,
+                                    'questions': questions,
+                                    'comments': comments,
+                                    'tags': tags
+                                     })
+                
+                    
 
