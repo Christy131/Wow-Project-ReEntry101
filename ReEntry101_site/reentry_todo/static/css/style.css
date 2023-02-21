@@ -1,18 +1,16 @@
 /* For homepage */
 .imagesForCircle{
     border-radius: 50%;
-    width: 350px;
-    height: 350px;
+    width: 450px;
+    height: 550px;
     padding: 10px;
     text-align: center;
     border: 3px solid black;
 }
 
 /* headers with similar charateristics */
-#welcomeHome,
-#searchItem,
-#commentSection {
-    font-family: signPainter;
+h1 {
+    font-family: cursive;
     text-shadow: 2px 2px 2px black;
     font-size: 5em;
 }
@@ -76,9 +74,12 @@ div a h2 {
 #footerBtns a {
     text-decoration: none; 
 }
-#theYard {
-    height: 350px;
-    width: 550px;
+#theYard,
+#releasedPrison {
+    height: 450px;
+    width: 650px;
+    margin-right: 50px;
+    margin-top: 30px;
 }
 .input-group label {
     margin-right: 2%;

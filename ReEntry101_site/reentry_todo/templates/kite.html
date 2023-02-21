@@ -3,39 +3,44 @@
 {% block body %}
 {% comment %} For the kite section {% endcomment %}
 <div class="row">
-    <div class= 'col-lg-5 col-12 pt-3 px-4 pr-lg-5 text-center'>
-        <h1 id="welcomeHome" class="text-primary mt-5">The Yard</h1>
-        <hr>
-        <div>
-            <p>The Yard was the spot to get all the lastest information, pass kites, or workout. This is the idea for this page, if you have a question, please ask. Also please take a look, your question may have already been asked.</p>
-        </div>
+  <div class='col-lg-6 col-12 pt-3 px-4 pr-lg-5 text-center'>
+    <h1 class="text-primary mt-5">The Yard</h1>
+    <hr>
+    <div>
+      <h4>The Yard was the spot to get all the lastest information, pass kites, or workout. This is the idea for this
+        page, if you have a question, please ask. Also please take a look, your question may have already been asked.
+      </h4>
     </div>
-    <div class="col-lg-7 col-12 pt-lg-3 mb-4 pl-lg-5 px-lg-0 px-4 pd-4">
-        <img src= {% static './images/theYard.jpeg' %}  align ="right" id ="theYard"class= "rounded float-right" alt="The Yard in Prison">
-    </div>
-    </div>
-{% comment %} Displays current questions in the data base {% endcomment %}
-<h1 class="text-center text-primary"id="commentSection">Current Questions Asked:</h1>
-{% for question in question_list %}
-<div class="col-lg-12 col-12 pt-3 px-4 pr-lg-5 text-center">
-<div class="card bg-light" style="width: 25rem;">
-    <div class="card-body">
-      <h3 class="card-title text-dark">{{ question.question }}</h3>
-     <a href ="{% url 'question_detail' question.id %}"><span class="arrow-right"></span> View Comments</a>
-    </div>
+  </div>
+  <div class="col-lg-6 col-12 pt-lg-3 mb-4 pl-lg-5 px-lg-0 px-4 pd-4">
+    <img src={% static "./images/theYard.jpg" %} align="right" id="theYard" class="rounded float-right"
+      alt="The Yard in Prison">
   </div>
 </div>
 {% comment %} Allows the user to ask their questions {% endcomment %}
-<h1 class="text-center text-primary"id="commentSection">Ask Your Question</h1>
-<p class="text-center">Couldn't find your answer to your question, please add your question below.</p>
-  <form method = 'POST'>
+<div class="col-lg-12 col-12 pt-lg-3 m-4 pl-lg-5 px-lg-0 px-4 pd-4 mb-5">
+  <h1 class="text-center text-primary">Ask Your Question</h1>
+  <p class="text-center">Couldn't find your answer to your question, please add your question below.</p>
+  <form method='POST'>
     {% csrf_token %}
-    <div class="input-group">
-    {{ question_form }}
-    <div class="input-group-prepend">
-    <button type = "submit" name = 'add' class= "btn btn-primary input-group-text" value = 'Add'>Add</button>
+    <div class="input-group justify-content-center">
+      {{ question_form }}
+      <div class="input-group-prepend">
+        <button type="submit" name='add' class="btn btn-primary input-group-text" value='Add'>Add</button>
+      </div>
     </div>
+  </form>
 </div>
-</form>
+{% comment %} Displays current questions in the data base {% endcomment %}
+<h1 class="text-center text-primary">Current Questions Asked:</h1>
+{% for question in question_list %}
+<div class="col-lg-12 col-12 pt-3 px-4 pr-lg-5 text-center">
+  <div class="card bg-light" style="width: 25rem;">
+    <div class="card-body">
+      <h3 class="card-title text-dark">{{ question.question }}</h3>
+      <a href="{% url 'question_detail' question.id %}"><span class="arrow-right"></span> View Comments</a>
+    </div>
+  </div>
+</div>
 {% endfor %}
 {% endblock %}

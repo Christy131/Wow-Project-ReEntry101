@@ -1,41 +1,51 @@
 {% extends "base.html" %}
 {% load static %}
 {% block body %}
-<h1> Kite </h1>
-<h2>{{question.question}}</h2>
+<h1 class="text-center">{{question.question}}</h1>
 <hr>
-{% comment %} this is the text field  {% endcomment %} 
-<h3> Tag Kite</h3>
-<form method = 'POST'>
-    {% csrf_token %}
-    {{ tag_form }}
-    <input type = "submit" name = 'tag' class= "btn btn-success" value = 'Tag'/>
-</form>
+{% comment %} this is the text field {% endcomment %}
+
+<div class='row justify-content-center'>
+    <div class="col-auto">
+        <h3> Add a subcategory for the question to make it easier to find </h3>
+        
+        <div class="text">
+        <form method='POST'>
+            {% csrf_token %}
+            <div class="input-group justify-content-center mt-4 mb-4">
+                {{ tag_form }}
+                <div class="input-group-prepend">
+                    <button class="btn btn-success" id="tag" name='tag' value='Tag'>Tag</button>
+                </div>
+            </div>
+        </form>
+        <span>For example, if it is discussing on where to apply for health insurance a subcategory could be health</span>
+        </div>
+    </div>
+</div>
+
 {% for tag in tag_list %}
-    <li style = 'display:inline' 'list-style-type:none'>{{ tag.name }} | </li>
+<li style='display:inline' 'list-style-type:none'>{{ tag.name }} | </li>
 {% endfor %}
 <hr>
-<h3> Reply to Kite</h3>
-<form method = 'POST'>
-    {% csrf_token %}
-    {{ comment_form }}
-    <input type = "submit" name = 'add' class= "btn btn-success" value = 'Add'/>
-    
-</form>
-
+<div class="text-center mt-4">
+    <h3> Post a Comment Responding to the Kite</h3>
+    <form method='POST' class="mt-4">
+        {% csrf_token %}
+        {{ comment_form }}
+        <br />
+        <input type="submit" name='add' class="btn btn-success mt-3" value='Add' />
+    </form>
+</div>
 {% comment %} for looping over the comments and displaying them in a list {% endcomment %}
 {% for comment in comment_list %}
-<form method = 'POST'>
+<form method='POST'>
     {% csrf_token %}
     {% comment %} {{ comment_form }} {% endcomment %}
-<li>{{ comment.body}}
-<!-- <input type = "submit" name = 'update' value = 'Update'/> -->
-<!-- <input type = "submit" name = 'delete' value = 'Delete'/> -->
-
-<td><a href="{% url 'delete' comment.id %}" class="btn btn-danger"> Delete </a></td>
-<td><a href="{% url 'comment' comment.id %}" class="btn btn-primary"> Update </a></td></li>
+    <li>{{ comment.body}}
+        <td><a href="{% url 'delete' comment.id %}" class="btn btn-danger"> Delete </a></td>
+        <td><a href="{% url 'comment' comment.id %}" class="btn btn-primary"> Update </a></td>
+    </li>
 </form>
-
-
 {% endfor %}
 {% endblock %}

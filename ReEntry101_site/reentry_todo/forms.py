@@ -8,6 +8,10 @@ class QuestionForm(ModelForm):
     class Meta:
         model = Question
         fields = ['question']
+        labels = {
+            'question' : ''
+        }
+
 class CommentForm(ModelForm):
     class Meta:
         model = Comment
@@ -29,6 +33,9 @@ class TagForm(ModelForm):
     class Meta:
         model = Tag
         fields = ['name']
+        labels = {
+            'name' : ''
+        }
 
     def save(self, question, *args, **kwargs):
         # `ModelForm`s come with an attribute called `self.data` that
