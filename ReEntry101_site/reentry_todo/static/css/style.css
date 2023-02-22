@@ -118,3 +118,11 @@ li {
     height: 95px;
     resize: none;
 }
+#kite,
+#resources,
+#homepage{
+    margin-top: 8%;
+}
+#questionPage {
+    margin-top : 50px;
+}
