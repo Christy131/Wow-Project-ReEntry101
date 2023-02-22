@@ -20,6 +20,7 @@
 {% comment %} Allows the user to ask their questions {% endcomment %}
 <div class="col-lg-12 col-12 pt-lg-3 m-4 pl-lg-5 px-lg-0 px-4 pd-4 mb-5">
   <h1 class="text-center text-primary">Ask Your Question</h1>
+  <hr>
   <p class="text-center">Couldn't find your answer to your question, please add your question below.</p>
   <form method='POST'>
     {% csrf_token %}
@@ -33,10 +34,11 @@
 </div>
 {% comment %} Displays current questions in the data base {% endcomment %}
 <h1 class="text-center text-primary">Current Questions Asked:</h1>
+<hr>
 {% for question in question_list %}
-<div class="col-lg-12 col-12 pt-3 px-4 pr-lg-5 text-center">
+<div class="col-lg-12 col-12 pt-3 px-4 pr-lg-5 text-center bg-primary mt-4">
   <div class="card bg-light" style="width: 25rem;">
-    <div class="card-body">
+    <div class="card-body mt-4">
       <h3 class="card-title text-dark">{{ question.question }}</h3>
       <a href="{% url 'question_detail' question.id %}"><span class="arrow-right"></span> View Comments</a>
     </div>
