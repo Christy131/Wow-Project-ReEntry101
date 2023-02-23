@@ -4,22 +4,24 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
+
 <head>
-     {% comment %} Bootstrap css link {% endcomment %}
+    {% comment %} Bootstrap css link {% endcomment %}
     <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
-    <link rel ="stylesheet" href ="{% static './css/style.css' %}"
-    <title>Reentry 101</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static './css/style.css' %}"> <title>Reentry 101</title>
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top justify-content-between">
-        <a class="navbar-brand fa fa-2x" href={% url 'home' %}>Reentry 101</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top justify-content-between mb-0">
+        <a class="navbar-brand fa-2x text-primary" id="brandName"href={% url 'home' %}>Reentry 101</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
             aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-        </button>  
+        </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarToggler">
             <ul class="navbar-nav mt-2 mt-lg-0">
-               
+
                 <li class="nav-item">
                     <a class="nav-link" href={% url 'home' %}>Home</a>
                 </li>
@@ -28,48 +30,63 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href={% url 'resources' %}>Resources</a>
-                </li> 
+                </li>
             </ul>
-            <form class="form-inline" method="POST" action ={% url 'search_results' %}>
-                {%  csrf_token %}
+            <form class="form-inline" method="POST" action={% url 'search_results' %}>
+                {% csrf_token %}
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="search" name="searched">
+                    <input type="text" class="form-control" placeholder="Search" aria-label="Search"
+                        aria-describedby="search" name="searched">
                     <div class="input-group-prepend">
-                      <button class="input-group-text" id="search">Search</button>
+                        <button class="input-group-text" id="search">Search</button>
                     </div>
                 </div>
             </form>
         </div>
-    </nav> 
+    </nav>
     <div class="container-fluid mt-5">
         {% block body %}
         {% endblock %}
-    <footer class='bg-light'>
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-12 text-center">
-                    <ul class="p-0" id="footerBtns">
-                        <h5>Follow Us</h><br/>
-                        <li class="btn btn-outline-primary"><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter">Twitter</span></a></li>
-                        <li class="btn btn-outline-primary"><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook">Facebook</span></a></li>
-                        <li class="btn btn-outline-primary"><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Instagram">Instagram</a></li>
-                    </ul>
+        <footer class='bg-light'>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-12 text-center">
+                        <h5>Follow Us:</h>
+                            <br/>
+                        <ul class="p-0 mt-3" id="footerBtns">
+                                <li class="btn btn-outline-light"><a href='#'><img src={% static './images/facebook.png' %} alt="Facebook" width="30" height="30"></a>
+                                </li>
+                                <li class="btn btn-outline-light"><a href='#'><img src={% static './images/instagram.png' %} alt="Instagram" width="30" height="30"></a>
+                                </li>
+                                <li class="btn btn-outline-light"><a href='#'><img src={% static './images/twitter.png' %} alt="Twitter" width="30" height="30"></a>
+                                </li>
+                                </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-md-12 text-center">
+                        <p class="copyright">
+                            Copyright ©
+                            <script>document.write(new Date().getFullYear());</script> All rights reserved
+                        </p>
+                    </div>
                 </div>
             </div>
-            <div class="row mt-5">
-                <div class="col-md-12 text-center">
-                    <p class="copyright">
-                        Copyright ©<script>document.write(new Date().getFullYear());</script> All rights reserved</p>
-                </div>
-                </div>
-        </div>
-    </footer>
+        </footer>
     </div>
 
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
 </body>
+
 </html>
