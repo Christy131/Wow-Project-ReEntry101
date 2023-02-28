@@ -15,7 +15,7 @@
             <div class="input-group justify-content-center mt-4 mb-4">
                 {{ tag_form }}
                 <div class="input-group-prepend">
-                    <button class="btn btn-success" id="tag" name='tag' value='Tag'>Tag</button>
+                    <button class="btn btn-primary" id="tag" name='tag' value='Tag'>Tag</button>
                 </div>
             </div>
         </form>
@@ -34,7 +34,7 @@
         {% csrf_token %}
         {{ comment_form }}
         <br />
-        <input type="submit" name='add' class="btn btn-success mt-3" value='Add' />
+        <input type="submit" name='add' class="btn btn-primary mt-3" value='Add' />
     </form>
 </div>
 {% comment %} for looping over the comments and displaying them in a list {% endcomment %}

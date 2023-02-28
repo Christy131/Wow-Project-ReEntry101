@@ -112,7 +112,9 @@ class CommentView(View):
 class ResourceView (View): 
     def get (self, request):
         return render(request=request, template_name='resources.html')
-
+class AboutUsView(View) :
+    def get (self, request):
+        return render(request=request, template_name='aboutUs.html')
 # view of search results 
 class SearchView(View):
     def post (self, request):

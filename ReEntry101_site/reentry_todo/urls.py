@@ -1,6 +1,6 @@
 from django.urls import path
 
-from reentry_todo.views import HomeView, QuestionDetailView, QuestionsView, CommentView, ResourceView,SearchView
+from reentry_todo.views import HomeView, QuestionDetailView, QuestionsView, CommentView, ResourceView,SearchView, AboutUsView
 # The single dot is a convention from command line applications. It means the current directory. In terms of Django it stands for the directory/module the current file is on.
 from . import views
 #just to commit 
@@ -18,5 +18,6 @@ urlpatterns=[
     # Take the user to the resources page
     path('resources', ResourceView.as_view(), name ='resources'),
     # added this pathway for the searh results
-    path('search_results', SearchView.as_view(), name='search_results')
+    path('search_results', SearchView.as_view(), name='search_results'),
+    path('aboutUs', AboutUsView.as_view(), name="about_us")
 ]
