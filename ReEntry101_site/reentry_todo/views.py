@@ -87,8 +87,6 @@ def delete(request, id):
 class CommentView(View):
   def get(self, request, id):
     comment= Comment.objects.get(id=id)
-    comment.likes=comment.likes+1
-    comment.likes.save()
     comment_form = CommentDetailForm(instance = comment)
     return render(
       request=request,
@@ -124,6 +122,7 @@ class SearchView(View):
         questions = Question.objects.filter(question__contains=searched)
         comments = Comment.objects.filter(body__contains=searched)
         tags = Question.objects.filter(tags__name__contains=searched)
+        resources = 'Resource Page'
         # This is whatever someone searches
         if request.method == 'POST':
             # gets whatever the user searches
@@ -134,7 +133,8 @@ class SearchView(View):
                           context = {'searched':searched,
                                     'questions': questions,
                                     'comments': comments,
-                                    'tags': tags
+                                    'tags': tags,
+                                    'resources': resources
                                      })
                 
                     

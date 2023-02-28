@@ -33,7 +33,7 @@
 {% comment %} Only happens if there aren't any search results {% endcomment %}
     <div class= 'col-lg-12 col-12 pt-3 px-4 pr-lg-5 text-center'>
     <h2 class="bg-primary text-light">Sorry, we cannot find any results</h2>
-    <h2 class="text-primary">Try Another</h2>
+    <h2 class="text-primary">Try Again:</h2>
     <form class="form-inline" method="POST" action ={% url 'search_results' %}>
         {%  csrf_token %}
         <div class="input-group">
@@ -43,6 +43,8 @@
             </div>
         </div>
     </form>
+    <h3>Or Try: </h3>
+    <a href ="{% url 'resources' %}"><h2 class="onHover">{{ resources }}</h2></a> <br/>
     </div>
     {% endif%}
 {% endif%}
