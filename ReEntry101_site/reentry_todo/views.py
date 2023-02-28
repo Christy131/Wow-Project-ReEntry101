@@ -125,6 +125,7 @@ class SearchView(View):
         comments = Comment.objects.filter(body__contains=searched)
         tags = Question.objects.filter(tags__name__contains=searched)
         resources = 'Resource Page'
+        about_us = 'About Us'
         # This is whatever someone searches
         if request.method == 'POST':
             # gets whatever the user searches
@@ -136,7 +137,8 @@ class SearchView(View):
                                     'questions': questions,
                                     'comments': comments,
                                     'tags': tags,
-                                    'resources': resources
+                                    'resources': resources,
+                                    'about_us': about_us
                                      })
                 
                     
