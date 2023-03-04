@@ -1,10 +1,10 @@
 from django.urls import path
 
-from reentry_todo.views import HomeView, QuestionDetailView, QuestionsView, CommentView, ResourceView
+from reentry_todo.views import HomeView, QuestionDetailView, QuestionsView, CommentView, ResourceView, aboutusView
 # The single dot is a convention from command line applications. It means the current directory. In terms of Django it stands for the directory/module the current file is on.
 from . import views
 #just to commit
-urlpatterns=[
+urlpatterns = [
     # This path is the homepage
     path ('', HomeView.as_view(), name='home'),
     # This is the question view
@@ -16,5 +16,8 @@ urlpatterns=[
     # Takes the comment to a new page to update it
     path('comment/<int:id>', CommentView.as_view(), name='comment'),
     # Take the user to the resources page
-    path('resources', ResourceView.as_view(), name ='resources')
-]
+    path('resources', ResourceView.as_view(), name='resources'),
+    # Takes the user to the About Us page
+    path('aboutus', aboutusView.as_view(), name='aboutus')
+    
+    ]
