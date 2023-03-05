@@ -124,18 +124,20 @@ class SearchView(View):
         questions = Question.objects.filter(question__contains=searched)
         comments = Comment.objects.filter(body__contains=searched)
         tags = Question.objects.filter(tags__name__contains=searched)
+        resources = 'Resource Page'
         # This is whatever someone searches
         if request.method == 'POST':
             # gets whatever the user searches
             if 'searched' in  request.POST:
                 # getting all the items search
-                return render(request=request, 
-                          template_name='search_results.html',
-                          context = {'searched':searched,
-                                    'questions': questions,
-                                    'comments': comments,
-                                    'tags': tags
-                                     })
+                return render(request=request), 
+                template_name='search_results.html',
+                context = {'searched':searched,
+                    'questions': questions,
+                    'comments': comments,
+                    'tags': tags,
+                    'resources': resources,
+                    }
                 
                     
 
