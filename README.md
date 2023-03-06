@@ -13,9 +13,9 @@
 ### 2. Run the Virtual Environment
 - Run the following command:
     - For Windows:<br>
-        ```venv\Scripts\activate```
+        ```venv/Scripts/activate```
     - For Mac:<br>
-        ```source venv\bin\activate```
+        ```source venv/bin/activate```
 
      -Your virtaul environment should be running in your terminal in 'venv' marker`<br>
 
