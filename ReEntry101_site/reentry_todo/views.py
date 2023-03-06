@@ -114,7 +114,10 @@ class CommentView(View):
 class ResourceView (View): 
     def get (self, request):
         return render(request=request, template_name='resources.html')
-
+# Takes the user to the About Us page
+class aboutusView (View): 
+    def get (self, request):
+        return render(request=request, template_name='about_us.html')
 # view of search results 
 class SearchView(View):
     def post (self, request):

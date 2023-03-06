@@ -5,6 +5,7 @@ from reentry_todo.views import HomeView, QuestionDetailView, QuestionsView, Comm
 from . import views
 #just to commit 
 urlpatterns=[
+
     # This path is the homepage
     path ('', HomeView.as_view(), name='home'),
     # This is the question view
@@ -16,7 +17,11 @@ urlpatterns=[
     # Takes the comment to a new page to update it
     path('comment/<int:id>', CommentView.as_view(), name='comment'),
     # Take the user to the resources page
+    path('resources', ResourceView.as_view(), name='resources'),
+    # Takes the user to the About Us page
+    path('aboutus', aboutusView.as_view(), name='aboutus')
     path('resources', ResourceView.as_view(), name ='resources'),
     # added this pathway for the searh results
     path('search_results', SearchView.as_view(), name='search_results')
 ]
+
