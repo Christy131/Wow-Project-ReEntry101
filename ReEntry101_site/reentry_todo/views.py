@@ -87,8 +87,6 @@ def delete(request, id):
 class CommentView(View):
   def get(self, request, id):
     comment= Comment.objects.get(id=id)
-    comment.likes=comment.likes+1
-    comment.likes.save()
     comment_form = CommentDetailForm(instance = comment)
     return render(
       request=request,
