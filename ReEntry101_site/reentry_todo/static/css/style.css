@@ -80,9 +80,8 @@ div a h2 {
 }
 #theYard,
 #releasedPrison {
-    height: 450px;
-    width: 650px;
-    margin-right: 10%;
+    height: 350px;
+    width: 475px;
     margin-top: 10%;
 }
 #welcome,
@@ -122,4 +121,24 @@ li {
 #resources,
 #homepage{
     margin-top: 8%;
+}
+
+form #fullName,
+form #email {
+    margin-top: 5px; 
+    background-color: #fff; 
+    height:35px; width:235px;
+}
+form #message{
+    margin-top: 5px;
+    background-color: #fff; 
+    height:50px; width:235px;
+}
+form #submitcontact{
+    font-size:14px; 
+    background-color:#6b7ddf; 
+    color:#fff; 
+    font-weight:bold; 
+    padding:10px 35px; 
+    margin: 5px 0 0 0;
 }
