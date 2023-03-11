@@ -4,46 +4,70 @@
 {% comment %} if the user searches an item {% endcomment %}
 {% if searched %}
 <div class="row mt-5">
-    <div class= 'col-lg-12 col-12 pt-3 px-4 pr-lg-5 text-center mt-5'>
+    <div class='col-lg-12 col-12 pt-3 px-4 pr-lg-5 text-center mt-5'>
         <div>You Searched For: <h1 class='text-primary'>{{ searched }}</h1>
         </div>
     </div>
-<div class="row">
-    <div class= 'col-lg-4 col-12 pt-3 px-4 pr-lg-5 text-center'>
-    {% comment %} displays all of the following with the words the user searched, search however DOES NOT INCLUDE RESOURCE PAGE may need to add another database {% endcomment %}
-    {% if questions%}
-        {% for question in questions%}
-        <a href ="{% url 'question_detail' question.id %}"><h2 class="onHover">{{ question.question }}</h2></a> <br/>
-        {%endfor%}
+    <div class="row">
+        <div class='col-lg-4 col-12 pt-3 px-4 pr-lg-5 text-center'>
+            {% comment %} displays all of the following with the words the user searched, search however DOES NOT
+            INCLUDE RESOURCE PAGE may need to add another database {% endcomment %}
+            {% if questions%}
+            {% for question in questions%}
+            <a href="{% url 'question_detail' question.id %}">
+                <h2 class="onHover">{{ question.question }}</h2>
+            </a> <br />
+            {%endfor%}
+        </div>
+        {%elif comments%}
+        <div class='col-lg-4 col-12 pt-3 px-4 pr-lg-5 text-center'>
+            {% for comment in comments%}
+            <a href="{% url 'comment' comment.id %}">
+                <h2 class="onHover">{{ comment.body }}</h2>
+            </a> <br />
+            {%endfor%}
+        </div>
+        {%elif tags%}
+        <div class='col-lg-4 col-12 pt-3 px-4 pr-lg-5 text-center'>
+            {% for tag in tags%}
+            <a href="{% url 'question_detail' question.id %}">
+                <h2 class="onHover">{{ tag }}</h2>
+            </a> <br />
+            {%endfor%}
+        </div>
+        {%else%}
     </div>
-    {%elif comments%}
-    <div class= 'col-lg-4 col-12 pt-3 px-4 pr-lg-5 text-center'>
-        {% for comment in comments%}
-        <a href ="{% url 'question' %}"><h2 class="onHover">{{ comment.body }}</h2></a> <br/>
-        {%endfor%}
-    </div>
-    {%elif tags%}
-    <div class= 'col-lg-4 col-12 pt-3 px-4 pr-lg-5 text-center'>
-        {% for tag in tags%}
-        <a href ="{% url 'question_detail' question.id %}"><h2 class="onHover">{{ tag }}</h2></a> <br/>
-        {%endfor%}
-    </div>
-    {%else%}
-</div>
-{% comment %} Only happens if there aren't any search results {% endcomment %}
-    <div class= 'col-lg-12 col-12 pt-3 px-4 pr-lg-5 text-center'>
-    <h2 class="bg-primary text-light">Sorry, we cannot find any results</h2>
-    <h2 class="text-primary">Try Another</h2>
-    <form class="form-inline" method="POST" action ={% url 'search_results' %}>
-        {%  csrf_token %}
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="search" name="searched">
-            <div class="input-group-prepend">
-              <button class="input-group-text" id="search">Search</button>
+    {% comment %} Only happens if there aren't any search results {% endcomment %}
+    <div class='col-lg-12 col-12 pt-3 px-4 pr-lg-5 text-center'>
+        <h2 class="bg-primary text-light">Sorry, we cannot find any results</h2>
+        <h2 class="text-primary">Try Again:</h2>
+        <form class="form-inline" method="POST" action={% url 'search_results' %}>
+            {% csrf_token %}
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search" aria-label="Search"
+                    aria-describedby="search" name="searched">
+                <div class="input-group-prepend">
+                    <button class="input-group-text" id="search">Search</button>
+                </div>
+            </div>
+        </form>
+        <h3>Or Try: </h3>
+        <div class="row">
+            <div class="col-lg-6 col-12 pt-3 px-4 pr-lg-5 text-center">
+                <a href="{% url 'resources' %}">
+                    <h2 class="onHover">{{ resources }}</h2>
+                </a>
+            </div>
+            <div class="col-lg-6 col-12 pt-lg-3 mb-4 pl-lg-5 px-lg-0 px-4 pd-4">
+                <a href="{% url 'aboutus' %}">
+                    <h2 class="onHover">{{ about_us }}</h2>
+                </a>
             </div>
         </div>
-    </form>
+        
+        
+
     </div>
     {% endif%}
-{% endif%}
-{% endblock %}
+    {% endif%}
+    {% endblock %}
