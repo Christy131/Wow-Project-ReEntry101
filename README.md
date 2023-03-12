@@ -21,19 +21,19 @@
     -To deactivate virtual enviroment:
        ```source venv/bin/deactivate```
 
-### 3. Run Bootstrap
+## 3. Run Bootstrap
 
 -Run the following commands in termminal:
     ```pip3 install importlib-metadata```
     ```pip install django-bootstrap-v5```
     ```pip install django-bootstrap```
 
-### 4. Install the requirements
+## 4. Install the requirements
 
 - In order for the program to run we need to make sure we have the required libraries to run the program, programs change and update all the time, by running the following command you will install the proper ones to run this program.
     ```pip install -r requirements.txt```
 
-### 5. How to run Django App
+## 5. How to run Django App
 
 - Run your virtual environment
 ```python3 manage.py runserver```
@@ -87,8 +87,9 @@ In the About Us section at the bottom there is the option to contact us, where w
 
 ## We plan on adding
 
--A search fuction using the question tags
-
+- Creating individual users so the user can only update and delete their posts
+- Adding Like and Dislike buttons to comments
+- Creating a database for Resources
 ## Group Members
 
 - [Erick Nava](https://github.com/ErickNavaP)
