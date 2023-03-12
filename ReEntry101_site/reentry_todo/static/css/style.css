@@ -142,3 +142,12 @@ form #submitcontact{
     padding:10px 35px; 
     margin: 5px 0 0 0;
 }
+
+#threeAvatars {
+    border-radius: 50%;
+    width: 450px;
+    height: 550px;
+    padding: 10px;
+    text-align: center;
+    border: 3px solid black;
+}
